@@ -1,13 +1,14 @@
 package com.javaunit3.springmvc;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component("bestMovieService")
 public class BestMovieService {
 
-    private Movie movie;
+    private static Movie movie;
 
     @Autowired
     public BestMovieService(@Qualifier("titanicMovie") Movie movie)
@@ -15,7 +16,7 @@ public class BestMovieService {
         this.movie = movie;
     }
 
-    public Movie getBestMovie() {
+    public static Movie getBestMovie() {
         return movie;
     }
 }

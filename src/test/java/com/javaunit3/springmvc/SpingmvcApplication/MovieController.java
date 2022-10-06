@@ -1,5 +1,6 @@
 package com.javaunit3.springmvc.SpingmvcApplication;
 
+import com.javaunit3.springmvc.BestMovieService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +15,10 @@ public class MovieController {
 
 
         @RequestMapping("/bestMovie")
-        public String getBestMovie(Model model){
-        model.addAttribute("BestMovie", bestMovieService.getBestMovie().getTitle());
-
+        public String getBestMovie(Model model) {
+            model.addAttribute("BestMovie", BestMovieService.getBestMovie().getTitle());
+        }
+            @RequestMapping("/voteForBestMovieForm")
+                    return "voteForBestMovie";
     }
-}
+
