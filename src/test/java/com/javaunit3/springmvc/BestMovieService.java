@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component("bestMovieService")
 public class BestMovieService {
 
-    private static Movie movie;
+    private Movie movie;
 
     @Autowired
     public BestMovieService(@Qualifier("titanicMovie") Movie movie)
@@ -16,7 +16,7 @@ public class BestMovieService {
         this.movie = movie;
     }
 
-    public static Movie getBestMovie() {
+    public Movie getBestMovie() {
         return movie;
     }
 }
