@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -30,10 +31,11 @@ public class MovieController {
             session.beginTransaction();
 
             List<MovieEntity> movieEntityList = session.createQuery("from MovieEntity").list();
+
             movieEntityList.sort(Comparator.comparing(movieEntity -> movieEntity.getVotes().size()));
 
             MovieEntity movieWithMostVotes = movieEntityList.get(movieEntityList.size() -1);
-
+            List<String> voterNames = new ArrayList<>();
             for(VoteEntity vote : movieWithMostVotes.getVotes()){
                 voterNames.add(vote.getVoterName());
             }
@@ -70,7 +72,7 @@ public class MovieController {
 
        VoteEntity newVote = new VoteEntity();
        newVote.setVoterName(voterName);
-       movieEntity.add(newVote);
+       movieEntity.addVote(newVote);
 
        session.update(movieEntity);
        session.getTransaction().commit();

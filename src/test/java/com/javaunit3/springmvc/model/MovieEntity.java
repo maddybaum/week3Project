@@ -1,7 +1,5 @@
 package com.javaunit3.springmvc.model;
 
-import org.hibernate.annotations.Table;
-
 import javax.persistence.*;
 import java.util.List;
 

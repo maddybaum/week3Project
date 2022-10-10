@@ -1,6 +1,5 @@
 package com.javaunit3.springmvc.model;
 
-import org.hibernate.annotations.Table;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
@@ -37,4 +36,4 @@ public class VoteEntity {
     }
 }
 
-}
+
